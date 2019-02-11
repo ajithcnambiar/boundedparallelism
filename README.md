@@ -1,17 +1,17 @@
 # boundedparallelism
-This code is intended to demonstrate bounded parallelism for concurrent http requests. In real world, this pattern can be applied in applications that perform large number of http requests and number of connections got to be constant.
+This code is intended to demonstrate bounded parallelism for operations to be performed concurrently in batches. In real world, this pattern can be applied in applications that perform large number of http requests and number of connections got to be constant.
 
 
 ## Pre-requisites
 Install golang, configure GOPATH etc
 
 ## Steps
-1. mkdir $GOPATH/src/concurrentHTTP && cd $GOPATH/src/concurrentHTTP
+1. cd $GOPATH/src
 2. git clone https://github.com/ajithcnambiar/boundedparallelism
-2. cd boundedparallelism
-3. go run test.go
+3. cd boundedparallelism
+4. go run test.go
 
-This will run a server listening at 6060. A curl on port 6060 will do an iteration of the test and server logs the http status.
+This will run a server listening at 6060. A curl on port 6060 will do an iteration of the test. In the test, input numbers from 0 to 9 are pushed to Stage 1 Channel. The stage has 5 functions that reads input from Stage 1 Channel. Stage 2 performs opertion on each input(add 20 to each input), and writes result into set of Channels. Stage 3 consumes these Channels and merge the result into a single Channel. Check for server logs for details.
 ```
 curl 'http://localhost:6060/
 ```

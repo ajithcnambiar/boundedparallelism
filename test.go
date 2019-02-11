@@ -1,14 +1,14 @@
 package main
 
 import (
-	"concurrentHTTP/boundedparallelism/pipeline"
+	"boundedparallelism/pipeline"
 	"fmt"
 	"net/http"
 	_ "net/http/pprof"
 )
 
 func main() {
-	fmt.Println("hello world")
+	fmt.Println("Starting bounded parallelism test... \nRun curl 'http://localhost:6060'")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("Running TestPipeline")
