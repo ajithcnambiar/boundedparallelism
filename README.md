@@ -18,7 +18,7 @@ curl 'http://localhost:6060/
 The reason for test server is to allow go profiling tests using pprof https://golang.org/pkg/net/http/pprof/
 
 ## Design
-
+![alt text](https://github.com/ajithcnambiar/boundedparallelism/blob/master/boundedParallelism.png
 
 ## References
 Code is based on bounded parallelism as explained in the blog https://blog.golang.org/pipelines
