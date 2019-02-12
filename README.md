@@ -13,7 +13,7 @@ Install golang, configure GOPATH etc
 
 This will run a server listening at 6060. A curl on port 6060 will do an iteration of the test. In the test, input numbers from 0 to 9 are pushed to Stage 1 Channel. The stage has 5 functions that reads input from Stage 1 Channel. Stage 2 performs opertion on each input(add 20 to each input), and writes result into set of Channels. Stage 3 consumes these Channels and merge the result into a single Channel. Check for server logs for details.
 ```
-curl 'http://localhost:6060/
+curl 'http://localhost:6060/'
 ```
 The reason for test server is to allow go profiling tests using pprof https://golang.org/pkg/net/http/pprof/
 
